@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_philosophers.c                              :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:34:14 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/14 15:52:55 by taelkhal         ###   ########.fr       */
+/*   Created: 2023/05/17 16:05:16 by taelkhal          #+#    #+#             */
+/*   Updated: 2023/05/17 16:08:47 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	initialize_philosophers(t_arguments *args)
+int	time(void)
 {
-	int	i;
+	static	struct timeval	time;
 
-	i = 0;
-	
+	gettimeofday(&time, NULL);
+	return ((time.tv_usec / 1000) * (time.tv_sec * 1000));
 }
