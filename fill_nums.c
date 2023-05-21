@@ -6,13 +6,13 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:00:11 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/08 16:06:24 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/21 16:19:31 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	fill_nums(int ac, char **av)
+int	fill_nums(int ac, char **av)
 {
 	int i;
 
@@ -21,9 +21,10 @@ void	fill_nums(int ac, char **av)
 	{
 		if (ft_atoi(av[i]) < 1)
 		{
-			ft_putstr("Error: Invalid Arguments\n", 2);
-			exit (0);
+			printf("Error: Invalid Arguments\n", 2);
+			return (0);
 		}
 		i++;
 	}
+	return (1);
 }

@@ -6,16 +6,17 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:09:01 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/17 16:22:16 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/21 15:26:56 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	sleep(t_philo *philo, int time)
+void	ft_sleep(int t)
 {
 	int	begin;
 
-	begin = time();
-	while ((time() - begin) < time && )
+	begin = get_time();
+	while (get_time() < begin + t)
+		usleep(50);
 }

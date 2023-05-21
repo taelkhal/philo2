@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 15:37:16 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/04 16:29:26 by taelkhal         ###   ########.fr       */
+/*   Created: 2023/05/21 16:07:25 by taelkhal          #+#    #+#             */
+/*   Updated: 2023/05/21 16:53:48 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int test = 0;
-void    *create_thread()
-{
-    int i;
-
-    i = 0;
-    while (i < 100)
-    {
-        test++;
-        i++;
-    }
-}
-
 int main(int ac, char **av)
 {
-    int a = ac - 1;
-    pthread_t p[a];
-    int i;
+	t_philo *philos;
 
-    i = 0;
-    if (ac == 2)
-    {
-        while (i < a)
-        {
-            pthread_create(&p[a], NULL, &create_thread, NULL);
-            pthread_join(p[a], NULL);
-            i++;
-        }
-        printf ("%d", test);
-    }
+	if (ac == 5 || ac == 6)
+	{
+	    philos = malloc(sizeof(t_philo));
+		if (philos->num_of_meals == 0)
+			return(0);
+	    if (!args_is_num(ac, av))
+		{
+			printf ("%s", "Error: Invalid Number\n");
+			return (0);
+		}
+		if (!fill_nums(ac, av))
+			return (0);
+		initialise_struct(philos, ac, av);
+		exit (1);
+		create_threads_for_philos(philos);
+	}
+	printf ("%s", "Error: Invalid Number Of Arguments\n");
 }
