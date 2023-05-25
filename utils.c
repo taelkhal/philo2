@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 15:08:30 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/08 16:04:21 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:02:40 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isdigit(int c)
 
 int	ft_atoi(const char *str)
 {
-	int					a;
+	unsigned long long		a;
 	int					t;
 	int					i;
 
@@ -39,21 +39,13 @@ int	ft_atoi(const char *str)
 		t = t * 10 + (str[i] - '0');
 		i++;
 	}
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	if (str[i])
+		return (0);
 	if (t >= 9223372036854775807 && a > 0)
 		return (-1);
 	if (t > 9223372036854775807 && a < 0)
 		return (0);
 	return (t * a);
-}
-
-void	ft_putstr_fd(char *str, int fd)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write (fd, str[i], 1);
-		i++;
-	}
 }

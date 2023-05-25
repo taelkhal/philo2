@@ -6,33 +6,29 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:46:19 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/21 16:57:34 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:39:56 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_philo	*initialise_philosophers(t_data *data)
+void	*initialise_philosophers(t_philo *philos)
 {
-	t_philo	*philos;
 	int	i;
-	int nb_philos;
+	//nt nb_philos;
 
 	i = 0;
-	nb_philos = data->philo->nb_of_philos;
-	philos = malloc(sizeof(t_philo) * nb_philos);
-	if (!nb_philos)
+	// nb_philos = philos->nb_of_philos;
+	philos->data = malloc(sizeof(t_data) * philos->nb_of_philos);
+	if (!(philos->data))
 		return (NULL);
-	while (i < nb_philos)
+	while (i < philos->nb_of_philos)
 	{
-		data[i].id = i + 1;
-		data[i].philo = philos;
-		data[i].num_of_meals = 0;
-		data[i].last_meal = 0;
-		data[i].philo_is_eat = 0;
-		data[i].left_fork = &data->philo->forks_mutex[i];
-		data[i].right_fork = &data->philo->forks_mutex[(i + 1) % nb_philos];
+		philos->data[i].philo_id = i + 1 ;
+		philos->data[i].last_meal = get_time();
+		philos->data[i].coounter_of_meals = 0;
+		philos->data[i].philo = philos;
 		i++;
 	}
-	return (philos);
+	return (NULL);
 }

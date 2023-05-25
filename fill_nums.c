@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:00:11 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/21 16:19:31 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:59:00 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	fill_nums(int ac, char **av)
 	{
 		if (ft_atoi(av[i]) < 1)
 		{
-			printf("Error: Invalid Arguments\n", 2);
+			printf("Error: Invalid Arguments\n");
 			return (0);
 		}
 		i++;

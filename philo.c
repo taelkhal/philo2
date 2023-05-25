@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 16:07:25 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/21 16:53:48 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:00:19 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int main(int ac, char **av)
 	if (ac == 5 || ac == 6)
 	{
 	    philos = malloc(sizeof(t_philo));
-		if (philos->num_of_meals == 0)
-			return(0);
 	    if (!args_is_num(ac, av))
 		{
 			printf ("%s", "Error: Invalid Number\n");
@@ -29,8 +27,10 @@ int main(int ac, char **av)
 		if (!fill_nums(ac, av))
 			return (0);
 		initialise_struct(philos, ac, av);
-		exit (1);
 		create_threads_for_philos(philos);
+		check_death(philos->data);
 	}
-	printf ("%s", "Error: Invalid Number Of Arguments\n");
+	else 
+		printf ("%s", "Error: Invalid Number Of Arguments\n");
+	return (0);
 }
