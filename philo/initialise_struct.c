@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:42:42 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/25 16:50:15 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/28 15:20:02 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	init_mutex(t_philo *philos)
 	pthread_mutex_init(&philos->mutex2, NULL);
 	pthread_mutex_init(&philos->is_done, NULL);
 	return ;
-	
 }
+
 void	initialise_struct(t_philo *philos, int ac, char **av)
 {
 	philos->nb_of_philos = ft_atoi(av[1]);
@@ -43,8 +43,7 @@ void	initialise_struct(t_philo *philos, int ac, char **av)
 		philos->num_of_meals = ft_atoi(av[5]);
 	else
 		philos->num_of_meals = -1;
-	// philos->start_time = get_time();
-	philos->philo_is_died = 0;
+	philos->start_time = get_time();
 	philos->forks = NULL;
 	initialise_philosophers(philos);
 	init_mutex(philos);

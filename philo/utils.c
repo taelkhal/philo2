@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 15:08:30 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/25 17:02:40 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:03:54 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_isdigit(int c)
 int	ft_atoi(const char *str)
 {
 	unsigned long long		a;
-	int					t;
-	int					i;
+	long int				t;
+	int						i;
 
 	a = 1;
 	t = 0;
@@ -42,10 +42,6 @@ int	ft_atoi(const char *str)
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if (str[i])
-		return (0);
-	if (t >= 9223372036854775807 && a > 0)
-		return (-1);
-	if (t > 9223372036854775807 && a < 0)
 		return (0);
 	return (t * a);
 }
