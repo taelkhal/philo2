@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:36:23 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/30 16:22:18 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:15:24 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ typedef struct s_philo
 	pthread_mutex_t	time;
 	long long		start_time;
 	pthread_mutex_t	philo_is_eat;
-	pthread_mutex_t	mutex;
-	pthread_mutex_t	mat;
+	pthread_mutex_t	died1;
+	pthread_mutex_t	finish;
 	pthread_mutex_t	is_done;
-	pthread_mutex_t	mutex2;
+	pthread_mutex_t	died2;
 	int				done_eating;
 	t_data			*data;
 }					t_philo;

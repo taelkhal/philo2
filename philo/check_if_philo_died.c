@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:02:08 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/28 15:15:58 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:14:21 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	check_if_philo_died(t_data *data)
 		i = -1;
 		while (++i < data->philo->nb_of_philos)
 		{
-			pthread_mutex_lock(&data->philo->mutex);
-			pthread_mutex_lock(&data->philo->mutex2);
+			pthread_mutex_lock(&data->philo->died1);
+			pthread_mutex_lock(&data->philo->died2);
 			if (data[i].philo->time_to_die <= get_time() - data[i].last_meal)
 			{
 				if (!(not_finish_eat(data)))
@@ -47,8 +47,8 @@ int	check_if_philo_died(t_data *data)
 				if (data->meals_eating_by_philo == data->philo->nb_of_philos)
 					return (0);
 			}
-			pthread_mutex_unlock(&data->philo->mutex2);
-			pthread_mutex_unlock(&data->philo->mutex);
+			pthread_mutex_unlock(&data->philo->died2);
+			pthread_mutex_unlock(&data->philo->died1);
 		}
 	}
 	return (1);

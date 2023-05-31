@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:32:04 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/30 15:37:23 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:15:34 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	*routine(void *arg)
 		if (data->philo->num_of_meals != -1
 			&& data->counter_of_meals >= data->philo->num_of_meals)
 		{
-			pthread_mutex_lock(&data->philo->mat);
+			pthread_mutex_lock(&data->philo->finish);
 			data->philo->done_eating = 1;
-			pthread_mutex_unlock(&data->philo->mat);
+			pthread_mutex_unlock(&data->philo->finish);
 			break ;
 		}
 		philo_is_sleep(data);

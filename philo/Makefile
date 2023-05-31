@@ -6,13 +6,13 @@
 #    By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:30:16 by taelkhal          #+#    #+#              #
-#    Updated: 2023/05/30 16:16:26 by taelkhal         ###   ########.fr        #
+#    Updated: 2023/05/31 16:07:09 by taelkhal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-FLAGS = -Wall -Wextra -Werror -fsanitize=thread -g3
+FLAGS = -Wall -Wextra -Werror
 
 SRCS = utils.c args_is_num.c fill_nums.c initialise_struct.c \
 		initialise_philosophers.c sleep.c time.c routine_actions.c \

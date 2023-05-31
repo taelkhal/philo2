@@ -6,7 +6,7 @@
 /*   By: taelkhal <taelkhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:42:42 by taelkhal          #+#    #+#             */
-/*   Updated: 2023/05/28 15:20:02 by taelkhal         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:15:43 by taelkhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	init_mutex(t_philo *philos)
 		pthread_mutex_init(&philos->forks[i], NULL);
 		i++;
 	}
-	pthread_mutex_init(&philos->mutex, NULL);
-	pthread_mutex_init(&philos->mat, NULL);
+	pthread_mutex_init(&philos->died1, NULL);
+	pthread_mutex_init(&philos->finish, NULL);
 	pthread_mutex_init(&philos->print, NULL);
 	pthread_mutex_init(&philos->philo_is_eat, NULL);
 	pthread_mutex_init(&philos->time, NULL);
-	pthread_mutex_init(&philos->mutex2, NULL);
+	pthread_mutex_init(&philos->died2, NULL);
 	pthread_mutex_init(&philos->is_done, NULL);
 	return ;
 }
